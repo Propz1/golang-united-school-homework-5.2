@@ -66,8 +66,6 @@ func (c *Cache) Keys() []string {
 
 	keys := make([]string, 0, len(c.items))
 
-	fmt.Println(keys)
-
 	for k, i := range c.items {
 
 		if i.Expired() {
