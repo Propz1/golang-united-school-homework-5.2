@@ -109,7 +109,8 @@ func (c *Cache) PutTill(key, value string, deadline time.Time) {
 
 func (c *Cache) Delete(key string) {
 	if c.items != nil {
-		if _, found := c.items[key]; found {
+		_, found := c.items[key]
+		if found {
 			delete(c.items, key)
 		}
 	}
