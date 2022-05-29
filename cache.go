@@ -24,7 +24,13 @@ func (item Item) Expired() bool {
 }
 
 func NewCache() Cache {
-	return Cache{}
+	cache := Cache{
+		items: map[string]Item{},
+		mu:    sync.RWMutex{},
+	}
+	cache.items = make(map[string]Item)
+	return cache
+	//return Cache{}
 }
 
 func (c *Cache) Get(key string) (string, bool) {

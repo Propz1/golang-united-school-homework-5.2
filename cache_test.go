@@ -30,7 +30,6 @@ func TestCache(t *testing.T) {
 	t.Run("Get with Put", func(t *testing.T) {
 
 		var cache = NewCache()
-		cache.items = make(map[string]Item)
 
 		toAdd = 1 * time.Second
 
@@ -47,7 +46,6 @@ func TestCache(t *testing.T) {
 	t.Run("Get with PutTill negative,", func(t *testing.T) {
 
 		var cache = NewCache()
-		cache.items = make(map[string]Item)
 
 		toAdd = 1 * time.Second
 
@@ -66,7 +64,6 @@ func TestCache(t *testing.T) {
 	t.Run("Get with PutTill positive", func(t *testing.T) {
 
 		var cache = NewCache()
-		cache.items = make(map[string]Item)
 
 		toAdd = 1 * time.Second
 
@@ -84,8 +81,6 @@ func TestCache(t *testing.T) {
 
 		var cache = NewCache()
 		var realResult = []string{"put"}
-
-		cache.items = make(map[string]Item)
 
 		toAdd = 1 * time.Second
 
@@ -107,8 +102,6 @@ func TestCache(t *testing.T) {
 		var cache = NewCache()
 		var realResult = []string{"put_till", "put"}
 
-		cache.items = make(map[string]Item)
-
 		cache.PutTill("put_till", "put_till", time.Now().Add(toAdd))
 		cache.Put("put", "put")
 
@@ -124,8 +117,6 @@ func TestCache(t *testing.T) {
 
 		var cache = NewCache()
 		var realResult = "put_till"
-
-		cache.items = make(map[string]Item)
 
 		cache.PutTill("put_till", "put_till", time.Now().Add(toAdd))
 		cache.Put("put", "put")
